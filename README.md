@@ -1,4 +1,4 @@
-# kea-plugin
+# Kea Plug-in
 Information about the Kea plug-in for Grasshopper (Rhinoceros 3D).
 
 After installing the plug-in using the Package Manager (with "include pre-releases" box ticked) and restarting Rhino, you'll find a new option in the top-level View Menu: AI Script Assistant (Kea). Select that to launch the Kea window.
