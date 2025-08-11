@@ -26,15 +26,25 @@ With every request you make, Kea informs these models of the Grasshopper context
 
 The kinds of chat requests it expects and knows best how to handle are ones like:
 - "Create a Python script which has __ as inputs and outputs __"
-- "Can you explain what this script does?"
+- "Can you explain what this C# script does?"
 - "Add an new input of ___ and incorporate it into the calculations by ___"
 
-When you first ask it to create a script, if you don't specify a language, it will assume Python. Once the script object is created, the language is fixed.
+When you first ask it to create a script, if you don't specify a language, it will assume Python. Once the script object is created, the language is fixed.  Kea knows how to deal with:
+- C# for Rhino 7
+- GhPython (IronPython) for Rhino 7
+- IronPython for Rhino 8
+- Python 3 for Rhino 8
+- C# for Rhino 8
 
-Kea will maintain a chat history *per script object*.
+Kea will maintain a chat history *per script object*. So you can work on multiple script objects on the canvas because the histories for each is maintained.
+
+If you want to make a change to a particular script object, it needs to be selected. If you don't have any selected, then Kea will assume it needs to create a new script object, and once it does, the history will be assigned to that object and if you deselect it, you'll get a black history again, ready for you to create another new script object.
 
 ### Limitations
-These limitations exist at the time of writing but might be improved or changed over time. So at this point, Kea cannot:
-- change the language of a script component once it's been created
-- see the input values, output values or bugs in the script component
-- see anything else on the canvas except for the contents of the selected script, its input and output meta data
+These limitations exist at the time of writing but might be improved or changed over time. So at this point, Kea:
+- is limited to only C# and Python
+- cannot change the language of a script component once it's been created
+- cannot see the input values, output values or bugs in the script component
+- cannot see anything else on the canvas except for the contents of the selected script, its input and output meta data
+
+So far, once you get beyond 5 pages or so of chat history for any particular object, refreshing that chat by selecting another script object and selecting it again will be noticeably slower.
